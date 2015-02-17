@@ -111,6 +111,7 @@ return [
 	'providers' => [
 
 		'Collective\Html\HtmlServiceProvider',
+		'Vinkla\Instagram\InstagramServiceProvider',
 		/*
 		 * Laravel Framework Service Providers...
 		 */
@@ -163,6 +164,7 @@ return [
 
 		'Form' 		=> 'Collective\Html\FormFacade',
       	'Html' 		=> 'Collective\Html\HtmlFacade',
+      	'Instagram' => 'Vinkla\Instagram\Facades\Instagram',
 		//'Image' 	=> 'Intervention\Image\Facades\Image',
 
 		'App'       => 'Illuminate\Support\Facades\App',
