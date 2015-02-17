@@ -14,6 +14,12 @@
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
+Route::resource('users', 'UsersController');
+Route::resource('albums', 'AlbumsController');
+Route::resource('photos', 'PhotosController');
+Route::resource('matches', 'MatchesController');
+Route::resource('labels', 'LabelsController');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
