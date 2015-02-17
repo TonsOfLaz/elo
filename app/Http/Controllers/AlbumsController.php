@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Album;
+use App\Photo;
 
 use Illuminate\Http\Request;
 
@@ -17,6 +18,47 @@ class AlbumsController extends Controller {
 	{
 		$albums = Album::all();
 		return $albums;
+	}
+
+	function getRankings($id) {
+		$album = Album::find($id);
+		$photos = $album->photos()->where('elo','>','0')->orderBy('elo', 'DESC')->get();
+		return view('rankings', compact('photos'));
+	}
+	public function playBreak(Request $request) {
+		$stats = "";
+		return view('sections.break', compact('stats'));
+	}
+
+	public function getPlay($id) {
+		$album = Album::find($id);
+		$matches = [];
+		$buffer = 5;
+
+		for ($i=0; $i<$buffer; $i++) {
+			$photo1 = $album->photos->random();
+			$photo2 = $album->photos->random();
+			$matches[$i]['photo1'] = $photo1;
+			$matches[$i]['photo2'] = $photo2;
+			$view_str = $this->getViewString($photo1, $photo2);
+			$matches[$i]['view'] = $view_str;
+		}
+		return view('play', compact('matches'));
+	}
+	public function getViewString($photo1, $photo2) {
+		$photo1_ratio = $photo1->getRatio();
+		$photo2_ratio = $photo2->getRatio();
+		if ($photo1_ratio >= 1) {
+			$photo1view = "wide";
+		} else {
+			$photo1view = "tall";
+		}
+		if ($photo2_ratio >= 1) {
+			$photo2view = "wide";
+		} else {
+			$photo2view = "tall";
+		}
+		return "sections.match_".$photo1view."_".$photo2view;
 	}
 
 	/**

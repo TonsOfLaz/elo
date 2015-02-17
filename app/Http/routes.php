@@ -16,9 +16,9 @@ Route::get('instagram', 'PagesController@instagramTest');
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 
-Route::get('rankings', 'PagesController@getRankings');
-Route::get('play', 'MatchesController@getPlay');
-Route::get('matches/break', 'MatchesController@playBreak');
+Route::get('albums/{id}/rankings', 'AlbumsController@getRankings');
+Route::get('albums/{id}/play', 'AlbumsController@getPlay');
+Route::get('albums/{id}/break', 'AlbumsController@playBreak');
 
 Route::resource('users', 'UsersController');
 Route::resource('albums', 'AlbumsController');

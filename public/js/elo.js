@@ -15,7 +15,7 @@ $(document).ready(function() {
 				
 				var params = {};
 				params['matchcount'] = matchcount;
-				$.get( "matches/break",  params, function( data ) {
+				$.get( "break",  params, function( data ) {
 					match.html('');
 					match.html(data);
 					$("#matches").height($(".match:first-child").height());
@@ -26,12 +26,12 @@ $(document).ready(function() {
 				});
 			})
 			
-			$.post( "matches",  matchform.serialize(), function( data ) {
+			$.post( "/matches",  matchform.serialize(), function( data ) {
 				matches.append(data);
 			});
 		} else {
 
-			$.post( "matches",  matchform.serialize(), function( data ) {
+			$.post( "/matches",  matchform.serialize(), function( data ) {
 				matches.append(data);
 			});
 			

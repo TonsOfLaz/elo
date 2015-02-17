@@ -28,12 +28,12 @@ class Album extends Model {
 	
 	public function photos()
 	{
-		return $this->hasMany('Photo');
+		return $this->hasMany('App\Photo');
 	}
 	
 	public function user()
 	{
-		return $this->belongsTo('User');
+		return $this->belongsTo('App\User');
 	}
 	
 

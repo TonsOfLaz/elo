@@ -33,19 +33,7 @@ class MatchesController extends Controller {
 		return "Create matches";
 	}
 
-	public function getPlay() {
-		$matches = [];
-		$buffer = 5;
-		for ($i=0; $i<$buffer; $i++) {
-			$photo1 = Photo::orderByRaw("random()")->first();
-			$photo2 = Photo::orderByRaw("random()")->first();
-			$matches[$i]['photo1'] = $photo1;
-			$matches[$i]['photo2'] = $photo2;
-			$view_str = $this->getViewString($photo1, $photo2);
-			$matches[$i]['view'] = $view_str;
-		}
-		return view('play', compact('matches'));
-	}
+	
 
 	public function playBreak(Request $request) {
 		$stats = "";
@@ -124,12 +112,12 @@ class MatchesController extends Controller {
 	public function getViewString($photo1, $photo2) {
 		$photo1_ratio = $photo1->getRatio();
 		$photo2_ratio = $photo2->getRatio();
-		if ($photo1_ratio > 1) {
+		if ($photo1_ratio >= 1) {
 			$photo1view = "wide";
 		} else {
 			$photo1view = "tall";
 		}
-		if ($photo2_ratio > 1) {
+		if ($photo2_ratio >= 1) {
 			$photo2view = "wide";
 		} else {
 			$photo2view = "tall";

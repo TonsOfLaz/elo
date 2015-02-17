@@ -16,6 +16,8 @@ class CreatePhotosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('file');
+			$table->string('file_medium')->nullable();
+			$table->string('file_small')->nullable();
 			$table->unsignedInteger('height')->nullable();
 			$table->unsignedInteger('width')->nullable();
 			$table->string('date');
