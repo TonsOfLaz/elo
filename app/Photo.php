@@ -35,6 +35,8 @@ class Photo extends Model {
 	{
 		return $this->belongsTo('Album');
 	}
-	
+	public function getRatio() {
+		return $this->width / $this->height;
+	}
 
 }
