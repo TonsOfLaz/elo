@@ -7,6 +7,7 @@ use App\Photo;
 use App\Rating;
 
 use Auth;
+use Sentry;
 use Illuminate\Http\Request;
 
 class MatchesController extends Controller {
@@ -72,13 +73,12 @@ class MatchesController extends Controller {
 		$newmatch_arr['photo2_elo'] = $photo2_elo;
 		$newmatch_arr['ip'] = $request->getClientIp();
 
-
 		if (Auth::check()) {
-		    $newmatch_arr['user_id'] = Sentry::getUser()->id;
+		    $newmatch_arr['user_id'] = Auth::user()->id;
 		} else {
 			$newmatch_arr['user_id'] = 1;
 		}
-		
+
 		
 		$newmatch = Match::create($newmatch_arr);
 	

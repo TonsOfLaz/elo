@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 
 Route::get('rankings', 'PagesController@getRankings');
 Route::get('play', 'MatchesController@getPlay');

@@ -13,9 +13,10 @@
 			<!-- <li data-reveal-id="clock-modal">
 				<a href="/">About</a>
 			</li> -->
-			<li class="active"><a href="/play">Try it now!</a></li>
-			<li><a href='/rankings'>Rankings</a></li>
+			
 			@if (Auth::guest())
+				<li class="active"><a href="/play">Try it now!</a></li>
+				<li><a href='/rankings'>Rankings</a></li>
 				<li><a href="/auth/login">Login</a></li>
 				<li><a href="/auth/register">Register</a></li>
 			@else
@@ -26,8 +27,8 @@
 						<li><a href="/play">Lorem Pixel</a></li>
 					</ul>
 				</li>
-				<li class="active"><a href="/play">Current Collection: Lorem Pixel</a></li>
 				<li><a href='/rankings'>Rankings</a></li>
+				<li><a href="/auth/logout">Logout</a></li>
 			@endif
 			
 		</ul>

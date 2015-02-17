@@ -10,13 +10,12 @@ Matches
 	<div class="columns small-12">Matches</div>
 </div>
 <div class="row">
-	<div class="columns small-12 medium-3">[LISTFUNCTIONS]</div>
-	<div class="columns small-12 medium-9">
-		<ul class="list-expandable">
-						@foreach ($matches as $obj)
-						<li><span>{{ $obj->name() }}</span><div class="list-expandable-contents"><a href="/matches/{{$obj->id}}">View</a></div></li>
-						@endforeach
-					</ul>
+	<div class="columns small-12">
+		<ul>
+			@foreach ($matches as $match)
+				<li><span>{{ $match->photo1_id }}</span><a href="/matches/{{$match->id}}">View</a></li>
+			@endforeach
+		</ul>
 	</div>
 </div>
 
