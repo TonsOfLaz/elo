@@ -8,7 +8,7 @@ Public Albums
 @foreach ($albums as $album)
 	<div class="row">
 		<div class="columns small-4">
-			<h2>Album: <a class="button" href="/albums/{{ $album->id }}">{{ $album->name }}</a> </h2>
+			<h2>Album: <a href="/albums/{{ $album->id }}">{{ $album->name }}</a> </h2>
 		</div>
 		<div class="columns small-4">
 			Top Photos here
