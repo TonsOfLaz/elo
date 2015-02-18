@@ -59,8 +59,7 @@ class AddInstagramAlbum extends Command implements SelfHandling, ShouldBeQueued 
 										]);
 
 		
-		$photos = Instagram::getUserMedia($insta_userid);
-		$result = Instagram::pagination($photos);
+		$result = Instagram::getUserMedia($insta_userid);
 		do {
 			// loop through all entries of a response
 			foreach ($result->data as $data) {
