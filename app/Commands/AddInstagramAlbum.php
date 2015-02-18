@@ -54,7 +54,7 @@ class AddInstagramAlbum extends Command implements SelfHandling, ShouldBeQueued 
 
 		$album = Album::firstOrCreate( ['type' 		=> "Instagram",
 										'name' 		=> $insta_username,
-										'public' 	=> 0,
+										'public' 	=> 1,
 										'user_id' 	=> $userid,
 										]);
 
