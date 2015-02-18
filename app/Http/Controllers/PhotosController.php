@@ -48,7 +48,26 @@ class PhotosController extends Controller {
 	public function show($id)
 	{
 		$photo = Photo::find($id);
-		return $photo;
+		$matches = $photo->matches();
+		return view('photos.matches',compact('photo', 'matches'));
+	}
+	public function wins($id)
+	{
+		$photo = Photo::find($id);
+		$matches = $photo->wins();
+		return view('photos.wins',compact('photo', 'matches'));
+	}
+	public function losses($id)
+	{
+		$photo = Photo::find($id);
+		$matches = $photo->losses();
+		return view('photos.losses',compact('photo', 'matches'));
+	}
+	public function ties($id)
+	{
+		$photo = Photo::find($id);
+		$matches = $photo->ties();
+		return view('photos.ties',compact('photo', 'matches'));
 	}
 
 	/**

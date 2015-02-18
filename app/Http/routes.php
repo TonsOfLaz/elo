@@ -20,6 +20,10 @@ Route::get('albums/{id}/rankings', 'AlbumsController@getRankings');
 Route::get('albums/{id}/play', 'AlbumsController@getPlay');
 Route::get('albums/{id}/break', 'AlbumsController@playBreak');
 
+Route::get('photos/{id}/wins', 'PhotosController@wins');
+Route::get('photos/{id}/losses', 'PhotosController@losses');
+Route::get('photos/{id}/ties', 'PhotosController@ties');
+
 Route::resource('users', 'UsersController');
 Route::resource('albums', 'AlbumsController');
 Route::resource('photos', 'PhotosController');

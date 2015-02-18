@@ -24,22 +24,39 @@ class Match extends Model {
 	 * @var array
 	 */
 	protected $hidden = [];
-
 	
 	public function photo1()
 	{
-		return $this->belongsTo('Photo', 'photo1_id');
+		return $this->belongsTo('App\Photo', 'photo1_id');
 	}
 	
 	public function photo2()
 	{
-		return $this->belongsTo('Photo', 'photo2_id');
+		return $this->belongsTo('App\Photo', 'photo2_id');
 	}
 	
 	public function user()
 	{
-		return $this->belongsTo('User');
+		return $this->belongsTo('App\User');
 	}
-	
+	public function otherPhoto($photoid) {
+		if ($this->photo1_id == $photoid) {
+			return $this->photo2;
+		}
+		if ($this->photo2_id == $photoid) {
+			return $this->photo1;
+		}
+	}
+	public function outcome($photoid) {
+		if ($this->winner == $photoid) {
+			return "Won";
+		}
+		if ($this->winner > 0 && $this->winner != $photoid) {
+			return "Lost";
+		}
+		if ($this->winner == 0) {
+			return "Tied";
+		}
+	}
 
 }

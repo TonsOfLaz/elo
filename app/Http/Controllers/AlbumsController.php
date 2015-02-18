@@ -23,7 +23,7 @@ class AlbumsController extends Controller {
 	function getRankings($id) {
 		$album = Album::find($id);
 		$photos = $album->photos()->where('elo','>','0')->orderBy('elo', 'DESC')->get();
-		return view('rankings', compact('photos'));
+		return view('rankings', compact('photos', 'album'));
 	}
 	public function playBreak(Request $request) {
 		$stats = "";
@@ -43,7 +43,7 @@ class AlbumsController extends Controller {
 			$view_str = $this->getViewString($photo1, $photo2);
 			$matches[$i]['view'] = $view_str;
 		}
-		return view('play', compact('matches'));
+		return view('play', compact('matches', 'album'));
 	}
 	public function getViewString($photo1, $photo2) {
 		$photo1_ratio = $photo1->getRatio();
@@ -90,7 +90,8 @@ class AlbumsController extends Controller {
 	public function show($id)
 	{
 		$album = Album::find($id);
-		return $album;
+		$photos = $album->photos;
+		return view("album", compact('album', 'photos'));
 	}
 
 	/**

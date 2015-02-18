@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title')
-Play
+Playing {{ $album->name }} 
 @stop
 
 @section('content')

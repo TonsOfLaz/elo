@@ -48,8 +48,7 @@ class Photo extends Model {
 		return $this->matches1->merge($this->matches2);
 	}
 	public function wins() {
-		$wins = $this->matches()->filter(function($match)
-	    {
+		$wins = $this->matches()->filter(function($match) {
 	        if ($match->winner == $this->id) {
 	            return true;
 	        }
@@ -57,8 +56,7 @@ class Photo extends Model {
 	    return $wins;
 	}
 	public function losses() {
-		$losses = $this->matches()->filter(function($match)
-	    {
+		$losses = $this->matches()->filter(function($match) {
 	        if ($match->winner > 0 && $match->winner != $this->id) {
 	            return true;
 	        }
@@ -66,13 +64,18 @@ class Photo extends Model {
 	    return $losses;
 	}
 	public function ties() {
-		$ties = $this->matches()->filter(function($match)
-	    {
+		$ties = $this->matches()->filter(function($match) {
 	        if ($match->winner == 0) {
 	            return true;
 	        }
 	    });
 	    return $ties;
+	}
+	public function rank() {
+		return $this->album->photos()->where('elo', '>', $this->elo)->count() + 1;
+	}
+	public function albumCount() {
+		return $this->album->photos()->where('elo', '>', 0)->count();
 	}
 
 }

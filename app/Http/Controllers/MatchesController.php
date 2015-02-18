@@ -33,12 +33,6 @@ class MatchesController extends Controller {
 		return "Create matches";
 	}
 
-	
-
-	public function playBreak(Request $request) {
-		$stats = "";
-		return view('sections.break', compact('stats'));
-	}
 
 	/**
 	 * Store a newly created resource in storage.
