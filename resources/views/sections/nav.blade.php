@@ -15,19 +15,20 @@
 			</li> -->
 			
 			@if (Auth::guest())
-				<li class="active"><a href="/play">Try it now!</a></li>
-				<li><a href='/rankings'>Rankings</a></li>
+				<li class="active"><a href="/albums/54/play/">Try it now!</a></li>
+				<li><a href='/albums/public'>Public Albums</a></li>
 				<li><a href="/auth/login">Login</a></li>
 				<li><a href="/auth/register">Register</a></li>
 			@else
 				<li class="has-dropdown">
-					<a href="#">My Collections</a>
+					<a href="#">My Albums</a>
 					<ul class="dropdown">
-				
-						<li><a href="/play">Lorem Pixel</a></li>
+						@foreach (Auth::user()->albums as $album)
+							<li><a href="/albums/{{ $album->id }}">{{ $album->name }}</a></li>
+						@endforeach
 					</ul>
 				</li>
-				<li><a href='/rankings'>Rankings</a></li>
+				<li><a href='/albums/public'>Public Albums</a></li>
 				<li><a href="/auth/logout">Logout</a></li>
 			@endif
 			

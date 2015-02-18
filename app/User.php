@@ -33,17 +33,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	
 	public function matches()
 	{
-		return $this->hasMany('Match');
+		return $this->hasMany('App\Match');
 	}
 	
 	public function labels()
 	{
-		return $this->hasMany('Label');
+		return $this->hasMany('App\Label');
 	}
 	
 	public function albums()
 	{
-		return $this->hasMany('Album');
+		return $this->hasMany('App\Album');
 	}
 	
 

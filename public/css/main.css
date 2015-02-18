@@ -131,3 +131,8 @@ ul.list-expandable > li > span.hover {
 .match .button.tall {
 	/*line-height: 100%;*/
 }
+.tabs_wrapper {
+	width: 100%;
+	background: white;
+	padding-top: 30px;
+}

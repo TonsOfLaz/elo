@@ -5,6 +5,14 @@ Rankings
 @stop
 
 @section('content')
+
+<div class="row">
+	<div class="columns small-12">
+		<a href="/albums/{{ $album->id }}">{{ $album->name }}</a> 
+		<a class="button" href="/albums/{{ $album->id }}/play">Play</a>
+	</div>
+</div>
+
 <div class="row">
 	<div class="columns small-2"><h2>Photo</h2></div>
 	<div class="columns small-2"><h2>Elo</h2></div>

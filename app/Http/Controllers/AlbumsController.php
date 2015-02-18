@@ -19,6 +19,10 @@ class AlbumsController extends Controller {
 		$albums = Album::all();
 		return $albums;
 	}
+	public function publicAlbums() {
+		$albums = Album::where('public', true)->get();
+		return view('albums_public', compact('albums'));
+	}
 
 	function getRankings($id) {
 		$album = Album::find($id);

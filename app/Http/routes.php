@@ -19,6 +19,8 @@ Route::get('home', 'HomeController@index');
 Route::get('albums/{id}/rankings', 'AlbumsController@getRankings');
 Route::get('albums/{id}/play', 'AlbumsController@getPlay');
 Route::get('albums/{id}/break', 'AlbumsController@playBreak');
+Route::get('albums/{id}/play/break', 'AlbumsController@playBreak');
+Route::get('albums/public', 'AlbumsController@publicAlbums');
 
 Route::get('photos/{id}/wins', 'PhotosController@wins');
 Route::get('photos/{id}/losses', 'PhotosController@losses');
