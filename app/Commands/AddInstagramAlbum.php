@@ -37,6 +37,7 @@ class AddInstagramAlbum extends Command implements SelfHandling, ShouldBeQueued 
 	public function handle()
 	{
 		// create new album
+		set_time_limit(120);
 		
 		echo "<pre>";
 

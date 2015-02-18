@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Match;
 use App\Photo;
+use App\Album;
 use App\Rating;
 
 use Auth;
@@ -93,6 +94,7 @@ class MatchesController extends Controller {
 	}
 	public function nextMatch($album_id) {
 		// Print out next random match to screen
+		//dd($album_id);
 		$match = [];
 		$album = Album::find($album_id);
 		$photo1 = $album->photos->random();
