@@ -88,14 +88,15 @@ class MatchesController extends Controller {
 		$photo1->save();
 		$photo2->save();
 
-		return $this->nextMatch();
+		return $this->nextMatch($photo1->album_id);
 
 	}
-	public function nextMatch() {
+	public function nextMatch($album_id) {
 		// Print out next random match to screen
 		$match = [];
-		$photo1 = Photo::orderByRaw("random()")->first();
-		$photo2 = Photo::orderByRaw("random()")->first();
+		$album = Album::find($album_id);
+		$photo1 = $album->photos->random();
+		$photo2 = $album->photos->random();
 		$match['photo1'] = $photo1;
 		$match['photo2'] = $photo2;
 
