@@ -29,8 +29,8 @@ return [
 	'connections' => [
 
 		'main' => [
-			'client_id' => 'e303b9599a8b43fcbd93f82e366256ba',
-			'client_secret' => '92856f5428a54b088beb7a2a83067307',
+			'client_id' => env('INSTAGRAM_CLIENT_ID'),
+			'client_secret' => env('INSTAGRAM_CLIENT_SECRET'),
 			'callback_url' => 'http://protohyper.com'
 		],
 

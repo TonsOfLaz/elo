@@ -10,7 +10,10 @@ class PagesController extends Controller {
 	
 	function instagramTest() {
 		$this->dispatch(
-	        new AddInstagramAlbum("brandboston")
+	        new AddInstagramAlbum("magicalboombox")
+	    );
+	    $this->dispatch(
+	        new AddInstagramAlbum("blazogramma")
 	    );
 	    exit();
 		
